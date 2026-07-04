@@ -2,7 +2,7 @@
 
 Private research archive for the **Apache ActiveMQ Classic** Jolokia → `addNetworkConnector` → xbean/Spring-XML remote-code-execution chain (**CVE-2026-34197** and its patch-bypass **CVE-2026-42588**), plus a full auto-research audit of the fixed **6.2.6** release and a side-by-side comparison with Crowdfense's public bypass writeup.
 
-> Authorized security research. All exploitation was performed against **local lab brokers** (Docker / self-hosted). Payloads use placeholder attacker hosts. Nothing here targets a third-party system.
+> All exploitation was performed against **local lab brokers** (Docker / self-hosted). Payloads use placeholder attacker hosts.
 
 ---
 
